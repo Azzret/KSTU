@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href ="https://bootswatch.com/4/cerulean/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div id="app">
