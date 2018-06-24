@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Customer;
+use App\Applicant;
 use Illuminate\Http\Request;
 
-
-class CustomerController extends Controller
+class ApplicantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,10 @@ class CustomerController extends Controller
      */
     public function index()
     {
-
+        $applicants = Applicant::all();
+        return view('applicant.index',[
+            'applicants'=>$applicants,
+        ]);
     }
 
     /**
@@ -25,7 +27,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('applicant.create');
     }
 
     /**
@@ -36,55 +38,59 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $applicant = new Applicant($request->all());
+        $applicant->save();
+        return redirect('/applicant');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Customer  $customer
+     * @param  \App\Applicant  $applicant
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show(Applicant $applicant)
     {
-        $cars = $customer->cars;
-
-        return view('customer.show', [
-            'cars' => $cars,
+        return view('applicant.show',[
+            'applicant'=>$applicant,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Customer  $customer
+     * @param  \App\Applicant  $applicant
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
+    public function edit(Applicant $applicant)
     {
-        //
+        return view('applicant.edit',[
+            'applicant'=>$applicant,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Customer  $customer
+     * @param  \App\Applicant  $applicant
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, Applicant $applicant)
     {
-        //
+        $applicant->update($request->all());
+        return redirect('/applicant');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Customer  $customer
+     * @param  \App\Applicant  $applicant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy(Applicant $applicant)
     {
-        //
+        $applicant->delete();
+        return redirect()->back();
     }
 }

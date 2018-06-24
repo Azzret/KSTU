@@ -12,6 +12,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
+
         <!-- Styles -->
         <link href ="https://bootswatch.com/4/cerulean/bootstrap.css" rel="stylesheet" type="text/css">
         <link href ="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -239,7 +240,7 @@
     <div id="b4" class="containerTab" style="display:none;background:gray">
         <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
         <br>
-        <a href="#" style="color: white" target="_blank">Программная инженерия</a>
+        <a href="/software" style="color: white;" target="_blank">Программная инженерия</a>
 
     </div>
 

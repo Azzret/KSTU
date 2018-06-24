@@ -44,6 +44,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('car.index') }}">Cars</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('applicant.index') }}">Applicants</a>
+                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
