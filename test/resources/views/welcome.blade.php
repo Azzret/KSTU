@@ -162,14 +162,14 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="image\first.jpg" alt="...">
+            <div class="item active" style="align-content: center">
+                <img src="image\first.jpg" alt="">
                 <div class="carousel-caption">
                     ...
                 </div>
             </div>
-            <div class="item">
-                <img src="image\second.jpg" alt="...">
+            <div class="item flex-center">
+                <img src="image\second.jpg" alt="" style="align-content: center">
                 <div class="carousel-caption">
                     ...
                 </div>
@@ -265,6 +265,7 @@
         <div class="col-4">
 
         </div>
+    </div>
 
     <script>
         function openTab(tabName) {

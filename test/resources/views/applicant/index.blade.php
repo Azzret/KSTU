@@ -11,34 +11,29 @@
 
         @endif
         <div class="row">
-            <table>
-            <tr>
-                <th>ФИО</th>
-                <th>Адрес</th>
-                <th>Телефон</th>
-                <th>ОРТ балл</th>
-            </tr>
             @foreach($applicants as $applicant)
 
-                    <tr>
-                        <td>{{$applicant->FullName}}</td>
-                        <td>{{$applicant->Address}}</td>
-                        <td>{{$applicant->Phone}}</td>
-                        <td>{{$applicant->Point}}</td>
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $applicant->FullName }}</h5>
+                            <p class="card-text">{{ $applicant->Address }}</p>
+                            <p class="card-text">{{ $applicant->Phone }}</p>
+                            <p class="card-text">{{ $applicant->Point }}</p>
+                            <a href="/applicant/{{ $applicant->id }}" class="btn btn-primary">Показать</a>
+                            @if(Auth::user() && Auth::user()->admin == 1)
 
-                        @if(Auth::user() && Auth::user()->admin == 1)
-                        <td><a href="/car/{{ $applicant->id }}/edit" class="btn btn-warning">Редактировать</a></td>
-                            <form action="/car/{{ $applicant->id }}" method="post">
-                                @csrf
-                                @method('DELETE')
-                               <td> <button class="btn btn-danger">Удалить</button></td>
-                            </form>
+                                <a href="/applicant/{{ $applicant->id }}/edit" class="btn btn-warning">Редактировать</a>
+                                <form action="/applicant/{{ $applicant->id }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger">Удалить</button>
+                                </form>
 
-                        @endif
-
-                    </tr>
-                </table>
-
+                            @endif
+                        </div>
+                    </div>
+                </div>
 
             @endforeach
         </div>

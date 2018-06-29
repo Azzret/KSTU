@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use http\Env\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -69,4 +70,19 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    protected function edit(User $user)
+    {
+        return view('auth.edit',[
+            'auth'=>$user,
+        ]);
+    }
+
+    protected function update(Request $request, User $user)
+    {
+        $user->update($request->all());
+        return redirect('/user');
+
+    }
+
 }

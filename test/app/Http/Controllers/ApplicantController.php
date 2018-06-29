@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Applicant;
+use App\Faculty;
+use App\School;
 use Illuminate\Http\Request;
 
 class ApplicantController extends Controller
@@ -27,7 +29,13 @@ class ApplicantController extends Controller
      */
     public function create()
     {
-        return view('applicant.create');
+        $schools = School::all();
+        $faculties = Faculty::all();
+
+        return view('applicant.create', [
+            'schools' => $schools,
+            'faculties' => $faculties,
+        ]);
     }
 
     /**

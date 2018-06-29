@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/software', function () {
@@ -39,7 +39,11 @@ Route::resource('/applicant', 'ApplicantController')->only([
     'index', 'show', 'create',
 ]);
 
+Route::get('/specialties', 'SpecialtyController@ajax');
 
+Route::get('/user', function () {
+    return view('auth.edit');
+});
 
 
 Route::post('/buy/{id}', 'CarController@buy');

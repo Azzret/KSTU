@@ -3,7 +3,7 @@
 @section('content')
 
     <link href ="http://www.fas.nus.edu.sg/templates/fass_nus/asset/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href ="http://www.fas.nus.edu.sg/templates/fass_nus/css/template-default.css" rel="stylesheet" type="text/css">
+
 
 <style>
     .before, :after{
@@ -36,7 +36,7 @@
                             @if (Auth::user())
                             <div class="row justify-content-xl-center">
                                 <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
-                                <a href="{{ route('applicant.create') }}" class="btn btn-success">Оставить заявку</a>
+                                <a href="{{ route('applicant.create') }}" class="btn btn-success">Заполнить заявление</a>
                             </div>
                                 @endif
                         </header>
