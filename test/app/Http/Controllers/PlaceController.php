@@ -14,7 +14,11 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        //
+        $places = Place::all();
+        return view('applicant.index', [
+            'place'=>$places,
+        ]);
+
     }
 
     /**
@@ -24,7 +28,7 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        //
+        return view('applicant.create');
     }
 
     /**
@@ -35,7 +39,11 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $place = new Place($request->all());
+        $place->save();
+
+        return redirect('/applicant');
+
     }
 
     /**
@@ -46,7 +54,9 @@ class PlaceController extends Controller
      */
     public function show(Place $place)
     {
-        //
+        return view('applicant.show', [
+            'place'=>$place,
+        ]);
     }
 
     /**
@@ -57,7 +67,9 @@ class PlaceController extends Controller
      */
     public function edit(Place $place)
     {
-        //
+        return view('applicant.edit',[
+            'places'=>$place,
+        ]);
     }
 
     /**
@@ -69,7 +81,8 @@ class PlaceController extends Controller
      */
     public function update(Request $request, Place $place)
     {
-        //
+        $place->update($request->all());
+        return redirect('/applicant');
     }
 
     /**
@@ -80,6 +93,8 @@ class PlaceController extends Controller
      */
     public function destroy(Place $place)
     {
-        //
+        $place->delete();
+
+        return redirect()->back();
     }
 }

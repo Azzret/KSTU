@@ -1,4 +1,32 @@
+
+
 @extends('layouts.app')
+
+@section('styles')
+
+    <style>
+        .demotable {
+
+            counter-reset: schetchik;  /* счётчик с названием "schetchik" работает в рамках класса .demotable */
+        }
+        .demotable tr {
+            counter-increment: schetchik;  /* при встрече тега tr счётчик с названием "schetchik" увеличивается на единицу */
+        }
+        .demotable td,
+        .demotable tr:before {
+            padding: .1em .100em;
+            border: 1px solid #E7D5C0;
+        }
+        .demotable tr:before {
+            content: counter(schetchik);  /* значение счётчика с названием "schetchik" записывается в первую клетку строки */
+            display: table-cell;
+            vertical-align: inherit;
+            color: #978777;
+        }
+    </style>
+
+
+@endsection
 
 @section('content')
 
@@ -10,33 +38,43 @@
             </div>
 
         @endif
-        <div class="row">
-            @foreach($applicants as $applicant)
 
-                <div class="col-4">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $applicant->FullName }}</h5>
-                            <p class="card-text">{{ $applicant->Address }}</p>
-                            <p class="card-text">{{ $applicant->Phone }}</p>
-                            <p class="card-text">{{ $applicant->Point }}</p>
-                            <a href="/applicant/{{ $applicant->id }}" class="btn btn-primary">Показать</a>
-                            @if(Auth::user() && Auth::user()->admin == 1)
 
-                                <a href="/applicant/{{ $applicant->id }}/edit" class="btn btn-warning">Редактировать</a>
-                                <form action="/applicant/{{ $applicant->id }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger">Удалить</button>
-                                </form>
+            <div class="row">
+                <table class="table">
+                    <thead class="thead-inverse">
+                    <th scope="col">#</th>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">ОРТ балл</th>
+                    </thead>
 
-                            @endif
-                        </div>
-                    </div>
-                </div>
+                
+                    @foreach($applicants as $applicant)
 
-            @endforeach
-        </div>
+                        <tbody>
+                        <tr>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$applicant->s_name}}</td>
+                            <td>{{$applicant->f_name}}</td>
+                            <td>{{$applicant->point}}</td>
+
+                        </tr>
+                        </tbody>
+
+                    @endforeach
+
+
+                </table>
+            </div>
+
+
+        </form>
+
     </div>
 
+
 @endsection
+
+
+

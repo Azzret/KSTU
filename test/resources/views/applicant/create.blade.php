@@ -13,16 +13,26 @@
             <form action="{{ route('applicant.store') }}" method="post" class="col-10">
                 @csrf
                 <div class="form-group">
-                    <label>ФИО</label>
-                    <input type="text" class="form-control" name="FullName">
+                    <label>Имя</label>
+                    <input type="text" class="form-control" name="f_name">
+                </div>
+                <div class="form-group">
+                    <label>Фамилия</label>
+                    <input type="text" class="form-control" name="s_name">
                 </div>
                 <div class="form-group">
                     <label>Дата рождения</label>
-                    <input type="text" class="form-control" id="date_birth">
+                    <input type="date" class="form-control" id="date_birth">
                 </div>
                 <div class="form-group">
                     <label>Место проживания</label>
-                    <input type="text" class="form-control" name="place_id">
+                    <select class="form-control" name="place_id" id="place">
+
+                        @foreach($places as $place)
+                            <option value="{{$place->id}}">{{$place->name}}</option>
+                        @endforeach
+
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Адрес</label>
@@ -30,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <label>Законченное учебное заведение</label>
-                    <select class="form-control" name="school" id="">
+                    <select class="form-control" name="school_id" id="school">
                         @foreach($schools as $school)
 
                             <option value="{{ $school->id }}">{{ $school->name }}</option>
@@ -103,7 +113,7 @@
         });
     </script>
 
-{{--    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>--}}
+    {{--    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>--}}
 
     <script src="{{ asset('js/datepicker.min.js') }}"></script>
     <script src="{{ asset('js/datepicker-custom.js') }}"></script>

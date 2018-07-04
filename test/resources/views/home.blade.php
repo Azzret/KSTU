@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
+
 @section('content')
 
 
@@ -71,53 +73,80 @@
     <!-- Full-width columns: (hidden by default) -->
     <div id="b1" class="containerTab" style="display:none;background:gray">
         <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-        <p>Программная инженирия</p>
+        <a href="/software" style="color: white;" target="_blank">Программная инженерия</a>
+        <br>
+        <a href="#" style="color: white;" target="_blank">Информационная безопасность</a>
+
     </div>
     <div id="b2" class="containerTab" style="display:none;background:gray">
         <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-        <h2>Box 2</h2>
-        <p>Lorem ipsum dolor sit amet, te quo doctus abhorreant, et pri deleniti intellegat, te sanctus inermis ullamcorper nam. Ius error diceret deseruisse ad</p>
+        <a href="#" style="color: white;" target="_blank">Технология производство продукта растительного сырья</a>
+        <br>
+        <a href="#" style="color: white;" target="_blank">Технология консервирования</a>
+
     </div>
     <div id="b3" class="containerTab" style="display:none;background:gray">
         <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-        <h2>Box 3</h2>
-        <p>Lorem ipsum dolor sit amet, te quo doctus abhorreant, et pri deleniti intellegat, te sanctus inermis ullamcorper nam. Ius error diceret deseruisse ad</p>
+        <a href="#" style="color: white;" target="_blank">Электроэнергетика и электротехника</a>
+        <br>
+        <a href="#" style="color: white;" target="_blank">Энергосбережение в электротехнике</a>
     </div>
     <div class="row">
         <div class="column" onclick="openTab('b4');" style="background:#474953;">
-            Факультет
+            Инженерно-экономический факультет
         </div>
         <div class="column" onclick="openTab('b5');" style="background:#474953;">
-            Технологиче
+            Факультет транспорта и машиностроения
         </div>
         <div class="column" onclick="openTab('b6');" style="background:#474953;">
-            Энергет
+            Эколого-экономический факультет
         </div>
 
     </div>
 
     <div id="b4" class="containerTab" style="display:none;background:gray">
         <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <a href="#" style="color: white;" target="_blank">Маркетинг в промышленности</a>
         <br>
-        <a href="/software" style="color: white;" target="_blank">Программная инженерия</a>
+        <a href="#" style="color: white;" target="_blank">Финансы и кредит</a>
 
     </div>
 
     <div id="b5" class="containerTab" style="display:none;background:gray">
         <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-        <h2>Box 5</h2>
-        <p>Lorem ipsum dolor sit amet, te quo doctus abhorreant, et pri deleniti intellegat, te sanctus inermis ullamcorper nam. Ius error diceret deseruisse ad</p>
+        <a href="#" style="color: white;" target="_blank">Автомобили и автомобильное хозяйство</a>
+        <br>
+        <a href="#" style="color: white;" target="_blank">Автомобильный сервис</a>
     </div>
 
     <div id="b6" class="containerTab" style="display:none;background:gray">
         <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-        <h2>Box 6</h2>
-        <p>Lorem ipsum dolor sit amet, te quo doctus abhorreant, et pri deleniti intellegat, te sanctus inermis ullamcorper nam. Ius error diceret deseruisse ad</p>
 
+    </div>
 
+    <div class="row">
+        <div class="column" onclick="openTab('b7');" style="background:#474953;">
+            Инженерно-экономический факультет
+        </div>
+        <div class="column" onclick="openTab('b8');" style="background:#474953;">
+            Факультет транспорта и машиностроения
+        </div>
 
 
     </div>
+
+    <div id="b7" class="containerTab" style="display:none;background:gray">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+
+    </div>
+
+    <div id="b8" class="containerTab" style="display:none;background:gray">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+    </div>
+
+
 
     <div class="flex-center position-ref full-height">
 

@@ -17,6 +17,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href ="https://bootswatch.com/4/cerulean/bootstrap.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
     @yield('styles')
     <style>
         * {
@@ -61,6 +64,18 @@
     </style>
 
 
+
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/tablesorter.js') }}"></script>
+    <script>
+        $(document).ready( function () {
+            $("#myTable").tablesorter();
+        });
+    </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <div id="app">
@@ -82,18 +97,19 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('car.index') }}">Cars</a>
+                            <a class="nav-link" href="{{ route('applicant.index') }}">Бюджет</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('applicant.index') }}">Applicants</a>
+                            <a class="nav-link" href="{{ route('openDay.index') }}">Мероприятия</a>
                         </li>
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Вход') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a>
                             </li>
 
                         @else

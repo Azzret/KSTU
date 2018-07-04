@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Applicant;
 use App\Faculty;
 use App\School;
+use App\Place;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ApplicantController extends Controller
 {
@@ -16,7 +18,11 @@ class ApplicantController extends Controller
      */
     public function index()
     {
-        $applicants = Applicant::all();
+        $applicants = DB::table('applicants')
+                                                    ->select(DB::raw('*'))
+                                                    ->orderByDesc(DB::raw('point'))
+                                                    ->get();
+
         return view('applicant.index',[
             'applicants'=>$applicants,
         ]);
@@ -31,9 +37,11 @@ class ApplicantController extends Controller
     {
         $schools = School::all();
         $faculties = Faculty::all();
+        $places = Place::all();
 
         return view('applicant.create', [
             'schools' => $schools,
+            'places'=>$places,
             'faculties' => $faculties,
         ]);
     }
@@ -48,7 +56,7 @@ class ApplicantController extends Controller
     {
         $applicant = new Applicant($request->all());
         $applicant->save();
-        return redirect('/applicant');
+        return redirect('/software');
     }
 
     /**

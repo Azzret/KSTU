@@ -14,7 +14,10 @@ class OpenDayController extends Controller
      */
     public function index()
     {
-        //
+        $openDays=OpenDay::all();
+        return view('openDay.index',[
+            'openDays'=>$openDays,
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class OpenDayController extends Controller
      */
     public function create()
     {
-        //
+        return view('openDay.create');
     }
 
     /**
@@ -35,7 +38,9 @@ class OpenDayController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $openDay=new OpenDay($request->all());
+        $openDay->save();
+        return redirect('/openDay');
     }
 
     /**
@@ -46,7 +51,9 @@ class OpenDayController extends Controller
      */
     public function show(OpenDay $openDay)
     {
-        //
+        return view('openDay.show', [
+            'openDay'=>$openDay,
+        ]);
     }
 
     /**
@@ -57,7 +64,9 @@ class OpenDayController extends Controller
      */
     public function edit(OpenDay $openDay)
     {
-        //
+        return view('openDay.edit', [
+            'openDay'=>$openDay,
+        ]);
     }
 
     /**
@@ -69,7 +78,8 @@ class OpenDayController extends Controller
      */
     public function update(Request $request, OpenDay $openDay)
     {
-        //
+        $openDay->update($request->all());
+        return redirect('/openDay');
     }
 
     /**
@@ -80,6 +90,7 @@ class OpenDayController extends Controller
      */
     public function destroy(OpenDay $openDay)
     {
-        //
+        $openDay->delete();
+        return redirect()->back();
     }
 }

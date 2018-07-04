@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/software', function () {
-    return view('index');
+    return view('software.index');
 });
 
 Route::group(['middleware' => ['admin']], function () {
@@ -37,6 +37,16 @@ Route::group(['middleware' => ['admin']], function () {
 
 Route::resource('/applicant', 'ApplicantController')->only([
     'index', 'show', 'create',
+]);
+
+Route::group(['middleware' => ['admin']], function () {
+    Route::resource('/openDay', 'OpenDayController')->except([
+        'index', 'show'
+    ]);
+});
+
+Route::resource('/openDay', 'OpenDayController')->only([
+    'index', 'show',
 ]);
 
 Route::get('/specialties', 'SpecialtyController@ajax');

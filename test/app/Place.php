@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model
 {
+    protected $guarded = [];
+
     public function applicants()
     {
         return $this->hasMany('App\Applicant');
