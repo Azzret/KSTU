@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('styles')
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href ="http://www.fas.nus.edu.sg/templates/fass_nus/css/template-default.css" rel="stylesheet" type="text/css">
+@endsection
 
 
 @section('content')
@@ -7,7 +11,7 @@
 
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 
 
 
@@ -22,7 +26,7 @@
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
+        <div class="carousel-inner align-content-end" role="listbox">
             <div class="item active" style="align-content: center">
                 <img src="image\first.jpg" alt="">
                 <div class="carousel-caption">
@@ -154,6 +158,48 @@
 
         </div>
     </div>
+<br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+
+
+
+
+    <section id="yt_spotlight8" class="block">
+        <div class="container">
+
+            <div id="bottom4" class="col-md-3 col-sm-6">
+
+                <div class="module  get-in-touch ">
+                    <h3 class="modtitle"></h3>
+                    <div class="razd-info">
+
+
+
+                        <p style="text-align: center; color: gray;">720044, г. Бишкек, пр. Чынгыза Айтматова (быв. пр. Мира) 66, КГТУ, к.1/324</p>
+                        <p style="text-align: center;color: gray;">Тел. (0312) 54-51-77 (приемная комиссия)</p>
+                        <p style="text-align: center;color: gray;">e-mail: tagaeva_72@mail.ru</p>
+                        <p style="text-align: center;color: gray;">&nbsp;(0312) 54-51-51 (для иностранных студентов),</p>
+                        <p style="text-align: center;color: gray;">e-mail: intoffice.kstu@gmail.com</p>
+                        <p style="text-align: center;color: gray;">Факс: +966 (312) 54-51-62</p>
+                        <p style="text-align: center;color: gray;">rector@kstu.kg</p>
+
+
+                    </div>
+                </div>
+
+                <div class="module  social-icon ">
+                    <div class="modcontent clearfix">
+
+                        <div class="list-icon" style="text-align: left;"><div class="yt-socialbt"><a data-placement="top" target="_blank" class="sb rss default  cicle color" title="" href="http://blog.nus.edu.sg/fassnews/" data-original-title="FASSNews"><i class="fa fa-rss"></i></a></div> <div class="yt-socialbt"><a data-placement="top" target="_blank" class="sb facebook default  cicle color" title="" href="https://www.facebook.com/nusfass" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></div> <div class="yt-socialbt"><a data-placement="top" target="_blank" class="sb twitter default  cicle color" title="" href="https://twitter.com/fassnews" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></div> <div class="yt-socialbt"><a data-placement="top" target="_blank" class="sb linkedin default  cicle color" title="" href="https://www.linkedin.com/groups/1917151" data-original-title="Linkedin"><i class="fa fa-linkedin"></i></a></div></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+    </section>
 
         <script>
             function openTab(tabName) {

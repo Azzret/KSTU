@@ -66,15 +66,27 @@
 
 
 
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/tablesorter.js') }}"></script>
+    {{--<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>--}}
+
     <script>
         $(document).ready( function () {
             $("#myTable").tablesorter();
         });
     </script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script>
+        $(".btn-refresh").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: '/refresh_captcha',
+                success: function(data) {
+                    $(".captcha span").html(data.captcha);
+                },
+            });
+        });
+    </script>
+
+    {{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>--}}
 
 </head>
 <body>
@@ -98,12 +110,19 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
 
+
+                        @if(Auth::user())
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('applicant.index') }}">Бюджет</a>
                         </li>
+
+                        @endif
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('openDay.index') }}">Мероприятия</a>
                         </li>
+
+
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Вход') }}</a>
@@ -122,11 +141,9 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Выйти') }}
                                     </a>
-                                    <a class="dropdown-item" href="auth.edit">
-                                        {{ __('Edit') }}
-                                    </a>
+
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -147,6 +164,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.js') }}"></script>
+
 
     @yield('scripts')
 </body>

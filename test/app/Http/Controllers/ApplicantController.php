@@ -18,10 +18,8 @@ class ApplicantController extends Controller
      */
     public function index()
     {
-        $applicants = DB::table('applicants')
-                                                    ->select(DB::raw('*'))
-                                                    ->orderByDesc(DB::raw('point'))
-                                                    ->get();
+
+        $applicants = Applicant::all()->sortByDesc('point');
 
         return view('applicant.index',[
             'applicants'=>$applicants,

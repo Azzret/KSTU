@@ -31,17 +31,17 @@ Route::resource('/car', 'CarController')->only([
 
 Route::group(['middleware' => ['admin']], function () {
     Route::resource('/applicant', 'ApplicantController')->except([
-        'index', 'show'
+        'index', 'show','create', 'store',
     ]);
 });
 
 Route::resource('/applicant', 'ApplicantController')->only([
-    'index', 'show', 'create',
+    'index', 'show', 'create', 'store',
 ]);
 
 Route::group(['middleware' => ['admin']], function () {
     Route::resource('/openDay', 'OpenDayController')->except([
-        'index', 'show'
+        'index', 'show',
     ]);
 });
 
@@ -55,6 +55,7 @@ Route::get('/user', function () {
     return view('auth.edit');
 });
 
+Route::get('refresh_captcha', 'HomeController@refreshCaptcha')->name('refresh_captcha');
 
 Route::post('/buy/{id}', 'CarController@buy');
 

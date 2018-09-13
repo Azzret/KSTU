@@ -4,7 +4,7 @@
 
     <link href ="http://www.fas.nus.edu.sg/templates/fass_nus/asset/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <link href ="http://www.fas.nus.edu.sg/templates/fass_nus/css/template-default.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -36,12 +36,12 @@
                                 </font>
                                 <span class="title-color"></span>
                             </h2>
-                            @if (Auth::user())
+                            @if(Auth::user() && !Auth::user()->admin==1)
                             <div class="row justify-content-xl-center">
                                 <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
                                 <a href="{{ route('applicant.create') }}" class="btn btn-success">Заполнить заявление</a>
                             </div>
-                                @endif
+                            @endif
                         </header>
                         <div class="border">
                             <h2>
